@@ -1,7 +1,7 @@
 import { Navbar, Container, Nav, NavDropdown, Button } from "react-bootstrap";
-// import CartWidget from './CartWidget/CartWidget';
+import CartWidget from './CartWidget/CartWidget';
 
-function NavBar() {
+function NavBar({cantCarrito}) {
   return (
     <>
         <Navbar bg="dark" variant="dark">
@@ -38,13 +38,12 @@ function NavBar() {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        {/* <Nav.Link><CartWidget cartItems="4"></CartWidget></Nav.Link> */}
+                        <Nav.Link><CartWidget cartItems={cantCarrito}></CartWidget></Nav.Link>
                         <Nav.Link><Button variant="outline-info">Login</Button></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-        
     </>
   );
 }
