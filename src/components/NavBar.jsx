@@ -6,7 +6,7 @@ function NavBar({cantCarrito}) {
     <>
         <Navbar bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand href="#home">
+                <Navbar.Brand href="/">
                     <img
                         alt=""
                         src="/logo.png"
@@ -19,8 +19,8 @@ function NavBar({cantCarrito}) {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#action1">Inicio</Nav.Link>
-                        <Nav.Link href="#action2">Ofertas</Nav.Link>
+                        <Nav.Link href="/">Inicio</Nav.Link>
+                        <Nav.Link href="/Ofertas">Ofertas</Nav.Link>
                         <NavDropdown title="Categorias" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="#action3">
                                 Remeras
@@ -34,6 +34,9 @@ function NavBar({cantCarrito}) {
                             {/* <NavDropdown.Divider /> */}
                             <NavDropdown.Item href="#action6">
                                 Pantalones
+                            </NavDropdown.Item>
+                            <NavDropdown.Item href="/Productos">
+                                Ver Todos
                             </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>

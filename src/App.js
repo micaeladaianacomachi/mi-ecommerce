@@ -1,18 +1,31 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';import NavBar from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ComponenteTest from './components/Tareas/ComponenteTest';
+import Home from './components/Home/Home';
+import Ofertas from './components/Ofertas/Ofertas';
+import Productos from './components/Productos/Productos';
 import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  const nombre = ["Nombre 1","Nombre 2","Nombre 3","Nombre 4","Nombre 5","Nombre 6"];
   const [cantCarrito, setCantCarrito] = useState(0);
 
   return (
     <div className="App">
-      <NavBar cantCarrito={cantCarrito} />
-      <ComponenteTest />
-      <ItemListContainer grettings={nombre} setCantCarrito={setCantCarrito} />
+      <BrowserRouter>
+        <NavBar cantCarrito={cantCarrito} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/Ofertas" element={<Ofertas />} />
+          <Route path="/Productos" element={<Productos setCantCarrito={setCantCarrito} />} />
+        </Routes>
+      </BrowserRouter>
+      {/*
+        <ComponenteTest />
+        <TestPromesas />
+        <TestFetchAPI />
+      */}
+
       {/* <header className="App-header">
         <img src="/logo.png" className="App-logo" alt="logo" />
         <p>

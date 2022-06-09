@@ -1,21 +1,12 @@
-import ItemCount from '../ItemCount/ItemCount';
+import ItemList from "../ItemList/ItemList";
 import './ItemListContainer.css';
 
 function ItemListContainer({grettings, setCantCarrito}) {
 
     return (
         <div className="Items-Container">
-            {grettings.map(item => {
-                return (
-                    <div key={item}>
-                        {item}!
-                        <ItemCount stockInicial={20} 
-                                   inicial={1} 
-                                   onAdd={setCantCarrito}/>
-                        <br/>
-                    </div>
-                );
-            })}
+            <ItemList grettings= {grettings} 
+                      setCantCarrito= {setCantCarrito}/>
         </div>
     );
 }
