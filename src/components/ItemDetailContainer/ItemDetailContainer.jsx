@@ -23,8 +23,7 @@ function ItemDetailContainer({setCantCarrito}) {
             });
 
             res.then((respuesta) => {
-                setResult(respuesta.filter(item => _key !== undefined &&
-                                                   item.Key == _key));
+                setResult(respuesta.find(item => item.key ==_key));
             }).catch((error) => {
                 setError(true);
             }).finally(() => {
@@ -54,7 +53,7 @@ function ItemDetailContainer({setCantCarrito}) {
                     {
                         error ?
                         "Ocurrio un Error al Cargar Los Productos" :
-                        <ItemDetail item={ result[0] }
+                        <ItemDetail item={ result }
                                     setCantCarrito={ setCantCarrito }/>
                     }
                 </div>
