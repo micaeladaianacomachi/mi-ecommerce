@@ -1,8 +1,7 @@
 import './Item.css';
-import { Button } from 'react-bootstrap';
-//import ItemCount from '../ItemCount/ItemCount';
+import { Link } from "react-router-dom";
 
-function Item({item, setCantCarrito}) {
+function Item({item}) {
 
     return (
         <div key={item.Key}
@@ -13,13 +12,9 @@ function Item({item, setCantCarrito}) {
                  className='img-thumbnail'
                  alt='...'
                  style={{ maxWidth: '24rem' }} />
-            {/* <ItemCount stockInicial={item.Stock} 
-                       inicial={1} 
-                       onAdd={setCantCarrito}/> */}
-            <Button className='btn-detalle-producto' 
-                    variant="outline-info">
-                Ver Detalle del Producto
-            </Button>
+                 <Link to={`/Producto/${item.Key}`}>
+                    Ver Detalle
+                 </Link>
             <small>El Stock Disponible es: {item.Stock}</small>
         </div>
     );

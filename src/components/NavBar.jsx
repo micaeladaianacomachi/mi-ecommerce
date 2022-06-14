@@ -1,5 +1,6 @@
 import { Navbar, Container, Nav, NavDropdown, Button } from "react-bootstrap";
 import CartWidget from './CartWidget/CartWidget';
+import { Link } from "react-router-dom";
 
 function NavBar({cantCarrito}) {
   return (
@@ -19,23 +20,22 @@ function NavBar({cantCarrito}) {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="/">Inicio</Nav.Link>
-                        <Nav.Link href="/Ofertas">Ofertas</Nav.Link>
+                        <Nav.Link as={Link} to="/">Inicio</Nav.Link>
                         <NavDropdown title="Categorias" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="#action3">
+                            <NavDropdown.Item as={Link} to={`Categoria/${1}`}>
                                 Remeras
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="#action4">
+                            <NavDropdown.Item as={Link} to={`Categoria/${2}`}>
                                 Buzos
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="#action5">
+                            <NavDropdown.Item as={Link} to={`Categoria/${3}`}>
                                 Camperas
                             </NavDropdown.Item>
                             {/* <NavDropdown.Divider /> */}
-                            <NavDropdown.Item href="#action6">
+                            <NavDropdown.Item as={Link} to={`Categoria/${4}`}>
                                 Pantalones
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="/Productos">
+                            <NavDropdown.Item as={Link} to="/">
                                 Ver Todos
                             </NavDropdown.Item>
                         </NavDropdown>

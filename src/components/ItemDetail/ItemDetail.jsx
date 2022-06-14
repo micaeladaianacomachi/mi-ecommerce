@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
-import { Container, Spinner } from "react-bootstrap";
 import { useParams } from 'react-router-dom';
-import ItemList from "../ItemList/ItemList";
-import './ItemListContainer.css';
+import { Container, Spinner } from "react-bootstrap";
+import ItemCount from '../ItemCount/ItemCount';
 
-function ItemListContainer({setCantCarrito}) {
-    const { categoria } = useParams();
+function ItemDetail({setCantCarrito}) {
+    const { key } = useParams();
 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [result, setResult] = useState([]);
 
-    const getData = async(_categoria) => {
+    const getData = async(_key) => {
         setLoading(true);
         setResult([]);
 
@@ -24,9 +23,8 @@ function ItemListContainer({setCantCarrito}) {
             });
 
             res.then((respuesta) => {
-                console.log(_categoria);
-                setResult(respuesta.filter(item => _categoria === undefined ||
-                                                   item.Categoria == _categoria));
+                setResult(respuesta.filter(item => _key !== undefined &&
+                                                   item.Key == _key));
             }).catch((error) => {
                 setError(true);
             }).finally(() => {
@@ -38,8 +36,8 @@ function ItemListContainer({setCantCarrito}) {
     }
 
     useEffect(() => {
-      getData(categoria);
-    }, [categoria])
+      getData(key);
+    }, [key])
 
     return (
         <Container>
@@ -57,14 +55,26 @@ function ItemListContainer({setCantCarrito}) {
                         error ?
                         "Ocurrio un Error al Cargar Los Productos" :
                         <div className="Items-Container">
-                            <ItemList grettings= {result}
-                                      setCantCarrito= {setCantCarrito}/>
+                            <div key={result[0].Key}
+                                className="Item">
+                                <h2>{result[0].Desc}</h2>
+                                <img key={result[0].Img}
+                                    src='https://mdbootstrap.com/img/new/standard/city/041.webp'
+                                    className='img-thumbnail'
+                                    alt='...'
+                                    style={{ maxWidth: '24rem' }} />
+                                <ItemCount stockInicial={result[0].Stock} 
+                                        inicial={1} 
+                                        onAdd={setCantCarrito}/>
+                                <small>El Stock Disponible es: {result[0].Stock}</small>
+                            </div>
                         </div>
                     }
                 </div>
             }
         </Container>
+        
     );
 }
 
-export default ItemListContainer;
+export default ItemDetail;

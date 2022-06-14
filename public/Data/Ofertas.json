@@ -1,0 +1,36 @@
+[{
+    "Key": 1, 
+    "Desc":"Producto 1",
+    "Img": "1.jpg",
+    "Stock": 12,
+    "Precio": 100.25,
+    "PrecioOferta": 80.25
+},{
+    "Key": 2, 
+    "Desc":"Producto 2",
+    "Img": "2.jpg",
+    "Stock": 23,
+    "Precio": 100.25,
+    "PrecioOferta": 80.25
+},{
+    "Key": 3, 
+    "Desc":"Producto 3",
+    "Img": "3.jpg",
+    "Stock": 34,
+    "Precio": 100.25,
+    "PrecioOferta": 80.25
+},{
+    "Key": 4, 
+    "Desc":"Producto 4",
+    "Img": "4.jpg",
+    "Stock": 45,
+    "Precio": 100.25,
+    "PrecioOferta": 80.25
+},{
+    "Key": 5,
+    "Desc":"Producto 5",
+    "Img": "5.jpg",
+    "Stock": 56,
+    "Precio": 100.25,
+    "PrecioOferta": 80.25
+}]

@@ -7,7 +7,6 @@ function ItemCount({stockInicial, inicial, onAdd}) {
     const [stock, setStock] = useState(stockInicial);
 
     useEffect(() => {
-        console.log(stock)
         if(contador > stock) {
             setContador(stock);
             alert("El Stock Maximo es " + stock);
