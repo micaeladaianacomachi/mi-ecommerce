@@ -23,7 +23,7 @@ function ItemDetailContainer({setCantCarrito}) {
             });
 
             res.then((respuesta) => {
-                setResult(respuesta.find(item => item.key ==_key));
+                setResult(respuesta.find(item => item.Key ==_key));
             }).catch((error) => {
                 setError(true);
             }).finally(() => {
